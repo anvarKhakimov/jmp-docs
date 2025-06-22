@@ -1,0 +1,61 @@
+---
+title: Throughput Chart Report
+description: Detailed description of the Throughput Chart report in Jira Metrics Plugin and its interpretation.
+---
+
+## Overview
+
+The Throughput Chart is a diagram that displays the number of completed tasks over specific time intervals. This report helps evaluate team performance and identify trends in task delivery speed.
+
+## Chart Structure
+
+[Image of Throughput Chart]
+
+- **X-axis**: Time intervals (days, weeks, or months)
+- **Y-axis**: Number of completed tasks for each interval
+
+## Throughput Calculation
+
+It's important to understand that Throughput is calculated exclusively based on the "Columns" mode:
+
+- Only tasks that have passed through the specified Completion Columns in the given period are counted.
+- At least one column must be selected in Completion Columns, otherwise the chart will be empty.
+
+## Report Configuration
+
+The following parameters are used to configure the report:
+
+1. **Resolution**: Choose the data grouping interval (day, week, month).
+2. **Timeframe**: Select the analysis period.
+3. **Completion Columns**: Choose columns for analysis. This is a key parameter determining which tasks will be considered completed.
+
+[Image of Throughput Chart settings panel]
+
+## Interpreting Results
+
+When analyzing the Throughput Chart, pay attention to the following aspects:
+
+- **High and stable throughput**: Indicates efficient and predictable team work.
+- **Low or unstable throughput**: May signal process problems or the need for optimization.
+- **Trends**: May reflect changes in processes, team size, or task complexity.
+- **Empty chart**: Usually means that no Completion Columns are selected or there were no tasks passing through the specified columns in the selected period.
+
+## Note on Filtering
+
+Unlike other reports, the Throughput Chart always uses the "Columns" mode for task filtering. The user cannot change this mode but can configure which columns are considered completing through the Completion Columns selection.
+
+## Usage Recommendations
+
+1. **Choosing the right interval**: Select an appropriate interval (day, week, month) depending on the duration of your tasks and analysis goals.
+
+2. **Trend analysis**: Pay attention to long-term trends. A gradual increase in throughput may indicate process improvement or team growth.
+
+3. **Period comparison**: Use the report to compare performance in different periods, for example, before and after implementing process changes.
+
+4. **Anomaly detection**: Sharp spikes or drops in throughput may indicate special events or problems requiring attention.
+
+5. **Correlation with other metrics**: Consider the Throughput Chart in combination with other metrics, such as Cycle Time, to get a more complete picture of process efficiency.
+
+## Conclusion
+
+The Throughput Chart is a powerful tool for evaluating team performance and analyzing trends in task delivery. Proper use of this report will help you identify areas for improvement and assess the effectiveness of implemented changes in processes.

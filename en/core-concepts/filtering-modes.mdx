@@ -1,0 +1,54 @@
+---
+title: Filtering Modes
+description: Description of "Activity" and "Columns" filtering modes in Jira Metrics Plugin.
+---
+
+## Overview of Filtering Modes
+
+JMP provides two task filtering modes: "Activity" and "Columns". The mode is selected through the "Filtering Mode" parameter in the report settings.
+
+## "Activity" Mode
+
+In "Activity" mode, all tasks that were active (i.e., were in any of the selected columns) during the specified time period are considered.
+
+### Features of "Activity" mode:
+
+- Covers all tasks that were in progress during the selected period.
+- Suitable for analyzing overall board activity.
+- Allows you to see the full picture of task movement across the board.
+
+## "Columns" Mode
+
+"Columns" mode filters tasks based on their passage through specified completion columns (Completion Columns) within the given time period.
+
+### Features of "Columns" mode:
+
+- Focuses on specific stages of the process.
+- Allows analysis of task passage time through certain stages.
+- When this mode is selected, an additional "Completion Columns" field is activated, where you can specify one or more columns for analysis.
+
+### How "Columns" mode works:
+
+1. A task is counted if it entered at least one of the specified Completion Columns within the given time period.
+2. The latest date of the task entering any of the Completion Columns is used.
+3. If there was a return to a previous column after a Completion Column, the task is not included in the sample.
+
+## Application of Filtering Modes
+
+The choice of filtering mode affects the following reports:
+
+- Cycle Time
+- Aging Chart
+- Predictability
+- Tasks Table
+
+This ensures a unified approach to data analysis across all reports.
+
+## Recommendations for Choosing a Mode
+
+- Use "Activity" mode for general process analysis and identifying bottlenecks at all stages of work.
+- Apply "Columns" mode for detailed analysis of specific process stages, such as development time or testing.
+
+## Conclusion
+
+Choosing the right filtering mode allows you to get the most relevant data for your analysis. Experiment with both modes to better understand which one is most effective for your specific tasks and processes.

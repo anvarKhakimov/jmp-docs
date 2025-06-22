@@ -1,0 +1,64 @@
+---
+title: Data Sampling and Filtering
+description: Explanation of data sampling and filtering principles in Jira Metrics Plugin.
+---
+
+## General Data Sampling Principle
+
+Jira Metrics Plugin (JMP) uses a unified approach to data sampling for all reports. The plugin gets your board settings and uses them to create a sample of tasks for analysis. By default, JMP includes all tasks that have ever been on the board, in all columns and swimlanes.
+
+## Filtering Tools
+
+JMP offers several tools to refine your sample:
+
+### Select Swimlanes
+
+Allows you to choose specific swimlanes for analysis, helping you focus on certain groups of tasks.
+
+### Quick Filters
+
+JMP automatically adds all quick filters from your board, allowing you to use them for additional task filtering. For example, you can use a quick filter to select tasks for a specific team.
+
+### Timeframe
+
+Lets you specify a time period for analysis using "from" and "to" fields. This helps you focus on a specific time range.
+
+### Select Columns
+
+Used to choose columns for calculating cycle time. In "Activity" filtering mode, this parameter also affects task filtering - only tasks that were active in the selected columns are shown.
+
+### Filtering Mode
+
+Determines how tasks are filtered. Two modes are available: "Activity" and "Columns". You can find a detailed description of these modes in the [Filtering Modes](/en/docs/core-concepts/filtering-modes) article.
+
+### Completion Columns
+
+This parameter is only active in "Columns" filtering mode. It allows you to specify which columns, when passed through, mark a task as completed.
+
+## How It All Works Together
+
+1. JMP first gets all tasks from the board.
+2. It applies filtering by selected swimlanes (Select Swimlanes).
+3. It applies selected quick filters (Quick Filters).
+4. Then it applies the time filter (Timeframe).
+5. It applies column filtering depending on the chosen filtering mode (Filtering Mode).
+6. If "Columns" mode is selected, it considers Completion Columns.
+
+## Usage Example
+
+Let's say you want to analyze a specific team's work over the last month. Here's how you can use the filters:
+
+1. Choose the swimlane that matches your team's task type.
+2. Use the "Team Alpha" quick filter (if you have such a filter on your board).
+3. Set the Timeframe to the last month.
+4. In Select Columns, choose the columns you want to analyze for task time spent. This will determine which stages of the workflow will be considered when calculating metrics.
+5. Choose the appropriate filtering mode (Activity or Columns).
+
+## Usage Recommendations
+
+- Start with a broad sample, gradually narrowing it down using filters for more detailed analysis.
+- Experiment with different filter combinations to get the most useful data for you.
+- Use quick filters to quickly switch between different sets of tasks, for example, between different teams or types of work.
+- Remember that choosing a filtering mode can significantly affect the analysis results. Make sure you understand the difference between "Activity" and "Columns" modes.
+
+Proper use of filters will allow you to get exactly the data you need for effective analysis and improvement of your work processes.

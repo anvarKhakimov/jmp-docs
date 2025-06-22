@@ -1,0 +1,65 @@
+---
+title: Cumulative Flow Diagram (CFD) Report
+description: Detailed description of the Cumulative Flow Diagram report in Jira Metrics Plugin and its interpretation.
+---
+
+## Overview
+
+The Cumulative Flow Diagram (CFD) is a powerful visual tool for analyzing the flow of tasks through various stages of your workflow. It allows you to assess team performance, identify bottlenecks, and forecast completion times.
+
+## Chart Structure
+
+[Image of Cumulative Flow Diagram]
+
+- **X-axis**: Timeline (dates)
+- **Y-axis**: Number of tasks
+- **Colored areas**: Each color represents a separate status or work stage, corresponding to the columns of your Kanban board
+
+## Interpreting the Diagram
+
+1. **Band width**: Shows the average time tasks spend in a certain status. A wide band may indicate a potential bottleneck.
+
+2. **Slope of lines**: A steep rise in a line indicates a rapid increase in the number of tasks in that status, while flat sections indicate stability or stagnation.
+
+3. **Gaps and overlaps**: Gaps between areas may indicate loss of work, while overlaps may indicate parallel work or rework.
+
+4. **Overall trend**: The overall slope of the top line shows the rate at which new tasks are entering the system.
+
+## Interactive Elements
+
+1. **Tooltips**: When hovering over a specific point on the diagram, a tooltip appears containing:
+   - Date
+   - Number of tasks in each status
+   - Total number of tasks on that date
+
+2. **Daily details**: Clicking on a specific day displays detailed information at the bottom of the page:
+   - List of tasks divided by status
+   - Task numbers are presented as clickable links leading to the corresponding task page in Jira
+
+3. **Display management**: Clicking on diagram legend elements allows you to visually hide or show specific columns, which is convenient for focusing on certain process stages.
+
+## Report Configuration
+
+Below the diagram are control elements for configuring the displayed data:
+
+1. **Timeframe**: Selection of analysis period
+2. **Select Swimlanes**: Filtering by specific swimlanes
+3. Additional filters: Depending on your board settings, various additional filters may be available to refine the data selection
+
+## Usage Recommendations
+
+1. **Trend analysis**: Regularly track changes in the shape and size of areas to identify long-term trends.
+
+2. **Bottleneck identification**: Pay attention to expanding areas that may indicate task accumulation in a certain status.
+
+3. **Performance assessment**: Analyze the speed of task transitions from one status to another to evaluate process efficiency.
+
+4. **Forecasting**: Use the slope of lines to predict completion times for future tasks.
+
+5. **Detailed analysis**: Use the day-click function for in-depth analysis of the project state on a specific date.
+
+6. **Focus on specific stages**: Use the legend to hide or display certain columns to concentrate on specific aspects of the process.
+
+## Conclusion
+
+The Cumulative Flow Diagram provides a comprehensive view of work flow in your project. Regular CFD analysis will help you optimize processes, improve predictability of timelines, and increase overall team efficiency. The flexibility of configuration and interactive elements allow you to adapt the analysis to the specifics of your workflow.

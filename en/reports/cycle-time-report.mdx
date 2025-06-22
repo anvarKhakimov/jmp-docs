@@ -1,0 +1,72 @@
+---
+title: Cycle Time Report
+description: Detailed description of the Cycle Time report in Jira Metrics Plugin and its interpretation.
+---
+
+## Overview
+
+The Cycle Time report is a distribution histogram that displays task completion times. This report is ideal for general assessment of workflow durations and identifying different types of tasks.
+
+## Histogram Structure
+
+[Image of Cycle Time histogram]
+
+- **X-axis**: Task completion time (in days, weeks, or months)
+- **Y-axis**: Number of tasks completed in the specified time
+
+The graph also marks two key lines:
+- **Blue line**: 50th percentile (median). Shows the time in which half of all tasks are completed.
+- **Red line**: 95th percentile. Marks the time in which the vast majority of tasks are completed. Tasks to the right of this line are considered "tails" or anomalies and require separate analysis.
+
+## Interactive Elements
+
+When hovering over a histogram bar, a tooltip appears with the following information:
+
+- **Cycle Time**: Completion time for this group of tasks
+- **Tasks**: Number of tasks in this group
+- **Percentile**: Percentage of tasks that are completed in this time or faster
+
+[Image of hover tooltip]
+
+## Cycle Time Calculation
+
+Cycle Time is calculated as the sum of time a task spent in all selected columns. It's important to note:
+
+1. The selection of columns in the "Select Columns" filter determines which tasks are included in the sample and what time is considered in calculations.
+2. You can select multiple columns, not necessarily sequential on the board.
+3. Time in the last column on the board (usually "Done") is not included in the total Cycle Time.
+4. The report considers all tasks for the selected period, regardless of their status (closed or not).
+
+## Impact of Filtering Mode
+
+The filtering mode ("Activity" or "Columns") affects the set of displayed tasks:
+- **Activity**: Considers all tasks active in selected columns during the specified period.
+- **Columns**: Focuses on tasks that have passed through specified completion columns.
+
+For more details on filtering modes, see the [Filtering Modes](/en/docs/core-concepts/filtering-modes) section.
+
+## Additional Statistics
+
+Below the histogram is a table with statistical indicators:
+
+[Image of statistics table]
+
+- **Total Tasks**: Total number of tasks in the sample
+- **Mean Time**: Average task completion time
+- **Percentiles**: Calculated values for 50th, 75th, 80th, 85th, 90th, 95th, and 100th percentiles
+
+## Tabular Data Representation
+
+The "Show Reports as Table" option allows you to display all tasks in a table format, where each row corresponds to a histogram bar. The table is sorted by Cycle Time from highest to lowest, which is convenient for analyzing tasks with the longest completion times.
+
+## Usage Recommendations
+
+1. Use quick filters for more precise analysis. For example:
+   - To analyze only closed tasks: `Resolution != Unresolved`
+   - To analyze tasks for a specific period: `Resolved >= $Start_date AND Resolved < $End_date`
+
+2. Pay attention to tasks falling into the "tail" of the distribution (after the 95th percentile). They may indicate process problems or require special attention.
+
+3. Regularly analyze changes in Cycle Time distribution to track the effectiveness of implemented improvements.
+
+4. Use the tabular representation when preparing for delivery process reviews, focusing on tasks with the longest completion times.

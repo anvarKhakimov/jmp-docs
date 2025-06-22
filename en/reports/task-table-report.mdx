@@ -1,0 +1,92 @@
+---
+title: Tasks Table Report
+description: Detailed description of the Tasks Table report in Jira Metrics Plugin, its functionality and interpretation.
+---
+
+## Overview
+
+The Tasks Table provides a detailed tabular view of your project's tasks. This report allows you to analyze tasks that fall under selected filters, with the ability to sort and view the timeline of each task.
+
+## Main Features
+
+### Task Filtering
+
+The same filters used in other reports are used to customize the task selection. You can learn more about working with filters in the [Data Sampling and Filtering](/en/docs/core-concepts/data-sampling-and-filtering) section.
+
+### Time Display Format Configuration
+
+You can choose a convenient time display format:
+- Hours
+- Days
+- Weeks
+- Timestamp
+
+Examples of display for a task that took 10 days and 8 hours:
+- Hours: "248 hours"
+- Days: "10.33 days"
+- Weeks: "1.48 weeks"
+- Timestamp: "10d 8h"
+
+Changing the time format dynamically updates the data in the table.
+
+### Data Export
+
+The "Download CSV" button allows you to export all filtered tasks to a CSV file for further analysis.
+
+It's important to note that in the CSV file, the time display formats "hours", "days", and "weeks" are output as numerical values without units of measurement. For example:
+- 248 (for hours)
+- 10.33 (for days)
+- 1.48 (for weeks)
+
+The "timestamp" format in CSV is preserved in the same form as in the table.
+
+### Sorting
+
+Sorting is possible by any table column, including task ID, total cycle time, and time in each column.
+
+## Table Structure
+
+### Table Header
+
+- **ID**: Unique task identifier, clickable link to the task in Jira.
+- **Σ Cycle Time**: Total task completion time.
+- **Process columns**: Time spent by the task in each selected workflow column.
+
+### Task Rows
+
+Each row represents an individual task and contains:
+- Option to expand to view a detailed timeline.
+- Task ID with a direct link to Jira.
+- Total task completion time.
+- Time spent in each selected process column.
+
+## Detailed Task View
+
+When expanding a task row, the following is displayed:
+
+### Timeline
+
+- Visual representation of the task's lifecycle.
+- Each segment represents time spent in a specific column.
+- Color coding of segments corresponds to different process stages.
+
+### Interactive Elements
+
+- Hovering over a timeline segment displays a tooltip with the column name and exact time spent in it.
+
+## Data Interpretation
+
+- **Total cycle time**: Allows you to assess the overall duration of task completion.
+- **Time in columns**: Helps identify stages where tasks are delayed the longest.
+- **Timeline**: Provides a visual representation of the task's passage through various process stages.
+
+## Practical Application
+
+1. **Process efficiency analysis**: Use sorting by total cycle time to identify the longest tasks.
+2. **Bottleneck identification**: Analyze time in individual columns to determine stages requiring optimization.
+3. **Task comparison**: Use timelines to compare lifecycles of different tasks.
+4. **Reporting**: Export data to CSV for creating detailed reports and presentations.
+
+## Conclusion
+
+The Tasks Table provides a detailed view of each task in your workflow. With this report, you can analyze the efficiency of your development process, identify problem areas, and make informed decisions to optimize workflow.
