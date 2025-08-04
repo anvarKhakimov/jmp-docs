@@ -15,6 +15,7 @@ The Cycle Time report is a distribution histogram that displays task completion 
 - **Y-axis**: Number of tasks completed in the specified time
 
 The graph also marks two key lines:
+
 - **Blue line**: 50th percentile (median). Shows the time in which half of all tasks are completed.
 - **Red line**: 95th percentile. Marks the time in which the vast majority of tasks are completed. Tasks to the right of this line are considered "tails" or anomalies and require separate analysis.
 
@@ -39,9 +40,10 @@ Cycle Time is calculated as the sum of time a task spent in all selected columns
 
 ## Impact of Filtering Mode
 
-The filtering mode ("Activity" or "Columns") affects the set of displayed tasks:
+The filtering mode ("Activity" or "Completion") affects the set of displayed tasks:
+
 - **Activity**: Considers all tasks active in selected columns during the specified period.
-- **Columns**: Focuses on tasks that have passed through specified completion columns.
+- **Completion**: Focuses on tasks that have passed through specified completion columns.
 
 For more details on filtering modes, see the [Filtering Modes](/en/docs/core-concepts/filtering-modes) section.
 
@@ -62,6 +64,7 @@ The "Show Reports as Table" option allows you to display all tasks in a table fo
 ## Usage Recommendations
 
 1. Use quick filters for more precise analysis. For example:
+
    - To analyze only closed tasks: `Resolution != Unresolved`
    - To analyze tasks for a specific period: `Resolved >= $Start_date AND Resolved < $End_date`
 
