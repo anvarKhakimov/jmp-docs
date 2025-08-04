@@ -15,12 +15,14 @@ The Aging Chart is a visual tool for analyzing the execution time of tasks curre
 - **Y-axis**: Time tasks have accumulated in selected columns (in days)
 
 Each task is represented by a dot on the chart:
+
 - The higher the dot, the longer the task has been in progress.
 - If several tasks have approximately the same execution time, they are grouped into a common dot with an indication of their number.
 
 ## Interactive Elements
 
 When hovering over a dot, a tooltip appears with the following information:
+
 - Link to the task in Jira
 - Accumulated time in selected columns
 
@@ -31,6 +33,7 @@ When hovering over a dot, a tooltip appears with the following information:
 Statistics are calculated based on all tasks in the sample, including historical data. Applied filters, selected dates, swimlanes, and columns are taken into account.
 
 Users can choose how to calculate statistics:
+
 - **All columns**: Considers time in all selected columns.
 - **Last Column**: Considers time in all selected columns except the last one (usually the "Done" column).
 
@@ -41,10 +44,12 @@ Color coding of tasks is set up based on calculated percentiles:
 [Image of color coding]
 
 When selecting one percentile (e.g., 50%):
+
 - **Green**: Tasks that have accumulated less time than the 50th percentile.
 - **Red**: Tasks that have accumulated more time than the 50th percentile.
 
 When selecting two percentiles (e.g., 50% and 85%):
+
 - **Green**: Tasks that have accumulated less time than the 50th percentile.
 - **Orange**: Tasks between the 50th and 85th percentiles.
 - **Red**: Tasks that have accumulated more time than the 85th percentile.
@@ -71,7 +76,7 @@ It's important to note that the height of colored blocks differs for each column
 
 2. **Adjusting percentiles**: Experiment with different percentile values for a better understanding of task distribution.
 
-3. **Combining with other metrics**: Use the Aging Chart along with other reports, such as Cycle Time, to get a complete picture of process efficiency.
+3. **Combining with other metrics**: Use the Aging Chart along with other reports, such as Lead Time, to get a complete picture of process efficiency.
 
 4. **Focus on anomalies**: Pay special attention to tasks that significantly deviate from the general distribution.
 

@@ -1,15 +1,15 @@
 ---
-title: Cycle Time Report
-description: Detailed description of the Cycle Time report in Jira Metrics Plugin and its interpretation.
+title: Lead Time Report
+description: Detailed description of the Lead Time report in Jira Metrics Plugin and its interpretation.
 ---
 
 ## Overview
 
-The Cycle Time report is a distribution histogram that displays task completion times. This report is ideal for general assessment of workflow durations and identifying different types of tasks.
+The Lead Time report is a distribution histogram that displays task completion times. This report is ideal for general assessment of workflow durations and identifying different types of tasks.
 
 ## Histogram Structure
 
-[Image of Cycle Time histogram]
+![Image of Lead Time histogram](/docs/images/leadtime.png)
 
 - **X-axis**: Task completion time (in days, weeks, or months)
 - **Y-axis**: Number of tasks completed in the specified time
@@ -23,19 +23,19 @@ The graph also marks two key lines:
 
 When hovering over a histogram bar, a tooltip appears with the following information:
 
-- **Cycle Time**: Completion time for this group of tasks
+- **Lead Time**: Completion time for this group of tasks
 - **Tasks**: Number of tasks in this group
 - **Percentile**: Percentage of tasks that are completed in this time or faster
 
 [Image of hover tooltip]
 
-## Cycle Time Calculation
+## Lead Time Calculation
 
-Cycle Time is calculated as the sum of time a task spent in all selected columns. It's important to note:
+Lead Time is calculated as the sum of time a task spent in all selected columns. It's important to note:
 
 1. The selection of columns in the "Select Columns" filter determines which tasks are included in the sample and what time is considered in calculations.
 2. You can select multiple columns, not necessarily sequential on the board.
-3. Time in the last column on the board (usually "Done") is not included in the total Cycle Time.
+3. Time in the last column on the board (usually "Done") is not included in the total Lead Time.
 4. The report considers all tasks for the selected period, regardless of their status (closed or not).
 
 ## Impact of Filtering Mode
@@ -51,7 +51,7 @@ For more details on filtering modes, see the [Filtering Modes](/en/docs/core-con
 
 Below the histogram is a table with statistical indicators:
 
-[Image of statistics table]
+![Image of statistics table](/docs/images/leadtime-statistic.png)
 
 - **Total Tasks**: Total number of tasks in the sample
 - **Mean Time**: Average task completion time
@@ -59,7 +59,7 @@ Below the histogram is a table with statistical indicators:
 
 ## Tabular Data Representation
 
-The "Show Reports as Table" option allows you to display all tasks in a table format, where each row corresponds to a histogram bar. The table is sorted by Cycle Time from highest to lowest, which is convenient for analyzing tasks with the longest completion times.
+The "Show Reports as Table" option allows you to display all tasks in a table format, where each row corresponds to a histogram bar. The table is sorted by Lead Time from highest to lowest, which is convenient for analyzing tasks with the longest completion times.
 
 ## Usage Recommendations
 
@@ -70,6 +70,6 @@ The "Show Reports as Table" option allows you to display all tasks in a table fo
 
 2. Pay attention to tasks falling into the "tail" of the distribution (after the 95th percentile). They may indicate process problems or require special attention.
 
-3. Regularly analyze changes in Cycle Time distribution to track the effectiveness of implemented improvements.
+3. Regularly analyze changes in Lead Time distribution to track the effectiveness of implemented improvements.
 
 4. Use the tabular representation when preparing for delivery process reviews, focusing on tasks with the longest completion times.

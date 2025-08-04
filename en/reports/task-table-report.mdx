@@ -16,12 +16,14 @@ The same filters used in other reports are used to customize the task selection.
 ### Time Display Format Configuration
 
 You can choose a convenient time display format:
+
 - Hours
 - Days
 - Weeks
 - Timestamp
 
 Examples of display for a task that took 10 days and 8 hours:
+
 - Hours: "248 hours"
 - Days: "10.33 days"
 - Weeks: "1.48 weeks"
@@ -34,6 +36,7 @@ Changing the time format dynamically updates the data in the table.
 The "Download CSV" button allows you to export all filtered tasks to a CSV file for further analysis.
 
 It's important to note that in the CSV file, the time display formats "hours", "days", and "weeks" are output as numerical values without units of measurement. For example:
+
 - 248 (for hours)
 - 10.33 (for days)
 - 1.48 (for weeks)
@@ -42,19 +45,20 @@ The "timestamp" format in CSV is preserved in the same form as in the table.
 
 ### Sorting
 
-Sorting is possible by any table column, including task ID, total cycle time, and time in each column.
+Sorting is possible by any table column, including task ID, total lead time, and time in each column.
 
 ## Table Structure
 
 ### Table Header
 
 - **ID**: Unique task identifier, clickable link to the task in Jira.
-- **Σ Cycle Time**: Total task completion time.
+- **Σ Lead Time**: Total task completion time.
 - **Process columns**: Time spent by the task in each selected workflow column.
 
 ### Task Rows
 
 Each row represents an individual task and contains:
+
 - Option to expand to view a detailed timeline.
 - Task ID with a direct link to Jira.
 - Total task completion time.
@@ -76,13 +80,13 @@ When expanding a task row, the following is displayed:
 
 ## Data Interpretation
 
-- **Total cycle time**: Allows you to assess the overall duration of task completion.
+- **Total lead time**: Allows you to assess the overall duration of task completion.
 - **Time in columns**: Helps identify stages where tasks are delayed the longest.
 - **Timeline**: Provides a visual representation of the task's passage through various process stages.
 
 ## Practical Application
 
-1. **Process efficiency analysis**: Use sorting by total cycle time to identify the longest tasks.
+1. **Process efficiency analysis**: Use sorting by total lead time to identify the longest tasks.
 2. **Bottleneck identification**: Analyze time in individual columns to determine stages requiring optimization.
 3. **Task comparison**: Use timelines to compare lifecycles of different tasks.
 4. **Reporting**: Export data to CSV for creating detailed reports and presentations.
