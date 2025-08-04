@@ -1,54 +1,86 @@
 ---
 title: Filtering Modes
-description: Description of "Activity" and "Columns" filtering modes in Jira Metrics Plugin.
+description: Understanding data filtering modes in Jira Metrics Plugin - how to select which tasks are included in your analysis.
 ---
 
-## Overview of Filtering Modes
+## What are Filtering Modes?
 
-JMP provides two task filtering modes: "Activity" and "Columns". The mode is selected through the "Filtering Mode" parameter in the report settings.
+**Important:** Filtering modes control **which tasks are included** in your analysis, not **how metrics are calculated**. The calculation formulas for lead time, cycle time, and other metrics remain the same regardless of the filtering mode chosen.
+
+JMP provides two data filtering modes: **"Activity"** and **"Completion"**. The mode is selected through the "Filtering Mode" parameter in the report settings.
 
 ## "Activity" Mode
 
-In "Activity" mode, all tasks that were active (i.e., were in any of the selected columns) during the specified time period are considered.
+In "Activity" mode, tasks are included if they were **active in any of the selected columns** during the specified time period.
 
-### Features of "Activity" mode:
+### How "Activity" mode works:
 
-- Covers all tasks that were in progress during the selected period.
-- Suitable for analyzing overall board activity.
-- Allows you to see the full picture of task movement across the board.
+- **Inclusion criteria**: A task is included if it had any movement or presence in the selected columns during the timeframe
+- **Use case**: Analyzing overall workflow activity and identifying bottlenecks across all stages
+- **Data scope**: Broader dataset including tasks that were "in progress" during the period
 
-## "Columns" Mode
+### When to use "Activity" mode:
 
-"Columns" mode filters tasks based on their passage through specified completion columns (Completion Columns) within the given time period.
+- General process analysis and workflow overview
+- Identifying bottlenecks at all stages of work
+- Understanding overall team activity and workload
+- Analyzing work in progress (WIP) patterns
 
-### Features of "Columns" mode:
+## "Completion" Mode
 
-- Focuses on specific stages of the process.
-- Allows analysis of task passage time through certain stages.
-- When this mode is selected, an additional "Completion Columns" field is activated, where you can specify one or more columns for analysis.
+In "Completion" mode, tasks are included only if they **completed** (moved through) specified completion columns within the given time period.
 
-### How "Columns" mode works:
+### How "Completion" mode works:
 
-1. A task is counted if it entered at least one of the specified Completion Columns within the given time period.
-2. The latest date of the task entering any of the Completion Columns is used.
-3. If there was a return to a previous column after a Completion Column, the task is not included in the sample.
+- **Inclusion criteria**: A task is included only if it passed through at least one of the specified "Completion Columns" during the timeframe
+- **Additional setting**: When this mode is selected, the "Completion Columns" field becomes active, where you specify which columns represent completion
+- **Completion logic**:
+  1. Task must have entered at least one Completion Column within the time period
+  2. Uses the latest date of entering any Completion Column
+  3. Tasks that returned to earlier columns after completion are excluded
 
-## Application of Filtering Modes
+### When to use "Completion" mode:
 
-The choice of filtering mode affects the following reports:
+- Analyzing specific process stages (e.g., development time, testing duration)
+- Measuring delivery performance and throughput
+- Focusing on completed work rather than work in progress
+- Creating delivery forecasts based on historical completion data
 
-- Cycle Time
-- Aging Chart
-- Predictability
-- Tasks Table
+## Key Differences Summary
 
-This ensures a unified approach to data analysis across all reports.
+| Aspect                  | Activity Mode                               | Completion Mode                           |
+| ----------------------- | ------------------------------------------- | ----------------------------------------- |
+| **Data inclusion**      | Tasks active in selected columns            | Tasks completed through specified columns |
+| **Time reference**      | Any activity during period                  | Completion events during period           |
+| **Dataset size**        | Typically larger (includes WIP)             | Typically smaller (completed work only)   |
+| **Best for**            | Process analysis, bottleneck identification | Delivery analysis, throughput measurement |
+| **Additional settings** | None                                        | Requires "Completion Columns" selection   |
 
-## Recommendations for Choosing a Mode
+## Impact on Reports
 
-- Use "Activity" mode for general process analysis and identifying bottlenecks at all stages of work.
-- Apply "Columns" mode for detailed analysis of specific process stages, such as development time or testing.
+**All reports use the same filtering mode** you select, ensuring consistent analysis across:
 
-## Conclusion
+- **Lead Time**: Affects which tasks' lead times are measured
+- **Aging Chart**: Determines which tasks appear on the aging analysis
+- **Predictability**: Influences the task sample for predictability calculations
+- **Table View**: Controls which tasks are displayed in the detailed view
 
-Choosing the right filtering mode allows you to get the most relevant data for your analysis. Experiment with both modes to better understand which one is most effective for your specific tasks and processes.
+## When to Use Each Mode
+
+### Use "Activity" Mode:
+
+- To analyze tasks that were **active** in selected columns during the time period
+- To see all work that was in progress, regardless of completion status
+- For process analysis and identifying bottlenecks
+
+### Use "Completion" Mode:
+
+- To analyze only tasks that **completed** through specified columns during the time period
+- To focus on delivered work and measure completion rates
+- Requires selecting which columns represent "completion" for your workflow
+
+## Important Notes
+
+- **Metrics formulas don't change**: Lead time is always calculated the same way regardless of filtering mode
+- **Only data selection changes**: Different tasks are included in the analysis, but calculations remain consistent
+- **Experiment with both modes**: Try both to understand which gives you more actionable insights for your specific needs
