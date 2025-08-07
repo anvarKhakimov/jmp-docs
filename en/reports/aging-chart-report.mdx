@@ -5,76 +5,247 @@ description: Detailed description of the Aging Chart report in Jira Metrics Plug
 
 ## Overview
 
-The Aging Chart is a visual tool for analyzing the execution time of tasks currently in progress. This report helps quickly assess the distribution of tasks over time and identify potential problems or bottlenecks in the delivery process.
+The Aging Chart is one of the key flow management tools in the Kanban method, designed to visualize the time tasks spend in progress.
 
-## Chart Structure
+The aging chart shows how long work items remain in the system and is a critically important tool for identifying blocked items and managing delivery risks.
 
-[Image of Aging Chart]
+The chart helps teams:
 
-- **X-axis**: Jira board columns
-- **Y-axis**: Time tasks have accumulated in selected columns (in days)
+- **Identify risks** of not meeting deadline commitments
+- **Find blocked tasks** before they become critical
+- **Manage stakeholder expectations** based on data
+- **Make decisions** about prioritization and escalation
 
-Each task is represented by a dot on the chart:
-- The higher the dot, the longer the task has been in progress.
-- If several tasks have approximately the same execution time, they are grouped into a common dot with an indication of their number.
+**Key Principle**: The chart shows current tasks in progress against historical statistics, allowing you to understand which tasks are progressing at a normal pace and which require attention.
+
+## How the Chart Works
+
+The Aging Chart is built on two types of data that provide a complete picture of what's happening:
+
+### 1. Current Tasks in Progress
+
+These are all tasks currently being processed on your board. These tasks are displayed as dots on the chart. Each dot shows how many days a task has been in progress.
+
+### 2. Historical Statistics for Comparison
+
+To understand whether the current work pace is normal or problematic, the chart uses statistics from previously completed tasks. This statistics creates **color zones** and **horizontal reference lines** on the chart.
+
+**How to configure historical data:**
+Historical statistics are automatically calculated based on:
+
+- **Selected time period** (e.g., last 3 months)
+- **Applied filters** (projects, task types, teams)
+- **Selected workflow columns**
+
+By changing these settings through filters, you can compare current work with different periods or conditions from the past, gaining more accurate understanding of performance.
+
+## How to Read the Chart
+
+### Chart Axes
+
+- **Horizontal axis (X)**: Your Jira workflow columns
+- **Vertical axis (Y)**: Task execution time in days
+
+### Tasks on the Chart
+
+Each task currently in progress is shown as a **green dot**:
+
+- **Higher position** = longer time in progress
+- **Number on dot** = shows task count if multiple tasks have similar timing
+- **Click on dot** = opens detailed task information
+
+Visualizing the time items spend in the system is critically important for understanding delivery predictability and identifying process anomalies.
 
 ## Interactive Elements
 
-When hovering over a dot, a tooltip appears with the following information:
-- Link to the task in Jira
-- Accumulated time in selected columns
+### Tooltip Information
 
-[Image of hover tooltip]
+When hovering over a dot, a tooltip displays:
 
-## Statistics Calculation (Percentiles)
+- Task key(s) (clickable links)
+- Accumulated time for each task in days
+- Multiple grouped tasks are listed separately
 
-Statistics are calculated based on all tasks in the sample, including historical data. Applied filters, selected dates, swimlanes, and columns are taken into account.
+### Task History Dialog
 
-Users can choose how to calculate statistics:
-- **All columns**: Considers time in all selected columns.
-- **Last Column**: Considers time in all selected columns except the last one (usually the "Done" column).
+Clicking on a task key in the tooltip opens a detailed task history dialog showing the task's journey through workflow columns.
 
-## Color Coding
+## Chart Settings
 
-Color coding of tasks is set up based on calculated percentiles:
+### Selecting Reference Lines
 
-[Image of color coding]
+You can configure which historical reference points to show on the chart:
 
-When selecting one percentile (e.g., 50%):
-- **Green**: Tasks that have accumulated less time than the 50th percentile.
-- **Red**: Tasks that have accumulated more time than the 50th percentile.
+- **Available options**: 30%, 50%, 70%, 85%, 95%
+- **Multiple selection** possible - choose lines important for your team
+- **Default**: all five lines are shown
 
-When selecting two percentiles (e.g., 50% and 85%):
-- **Green**: Tasks that have accumulated less time than the 50th percentile.
-- **Orange**: Tasks between the 50th and 85th percentiles.
-- **Red**: Tasks that have accumulated more time than the 85th percentile.
+## Color Zones and Reference Lines
 
-It's important to note that the height of colored blocks differs for each column. This is because percentiles are calculated separately for each column, taking into account accumulated time in previous columns.
+The chart shows **colored bands** and **horizontal lines** that help understand how current tasks are performing:
 
-## Additional Features
+### What Color Zones Mean
 
-- **Show calculation details**: Allows you to see the raw data used for calculations.
+Color zones are calculated **separately for each column** based on accumulated time of tasks in that column from historical data:
 
-## Interpreting Results
+- **Green zones** (light shades) — tasks are executing faster than usual for this column ✅
+- **Yellow-orange zones** — tasks are executing at normal pace for this column ⚠️
+- **Red zones** — tasks are executing slower than usual for this column, require attention 🚨
 
-1. **Identifying anomalies**: Tasks significantly higher than others may require special attention.
+**Calculation specifics**: Each column considers **accumulated time** — the total time a task has spent from process start to the current column. Therefore, color zones become "higher" in subsequent columns, reflecting the natural increase in total execution time.
 
-2. **Distribution analysis**: Evaluate how tasks are distributed over time in different columns. This can indicate bottlenecks in the process.
+### Percentile Lines
 
-3. **Early problem detection**: Pay attention to tasks in the red zone in initial columns. This may signal potential problems in early stages.
+Horizontal lines show historical reference points:
 
-4. **Process efficiency assessment**: A large number of tasks in the upper part of the chart may indicate a need for process optimization.
+- **30%, 50%, 70%, 85%, 95%** — statistical markers from past experience
+- If a task is **above the 85% line** — it's executing slower than 85% of similar tasks in the past
+- If a task is **below the 50% line** — it's executing faster than half of similar tasks
 
-## Usage Recommendations
+Important to understand: percentiles in the aging chart are not a plan, but a risk indicator. They help the team understand when to pay attention to a task and take action.
 
-1. **Regular monitoring**: Use the Aging Chart for daily or weekly reviews of current task status.
+**Important to remember**: Colors and lines may differ for different columns because statistics are calculated separately for each work stage.
 
-2. **Adjusting percentiles**: Experiment with different percentile values for a better understanding of task distribution.
+## Available Filters
 
-3. **Combining with other metrics**: Use the Aging Chart along with other reports, such as Cycle Time, to get a complete picture of process efficiency.
+The Aging Chart includes comprehensive filtering options:
 
-4. **Focus on anomalies**: Pay special attention to tasks that significantly deviate from the general distribution.
+### Filter Impact on the Chart
+
+All filters in the Aging Chart perform two important functions:
+
+1. **Control scope for statistics calculation** — determine which historical tasks to use for building percentiles and color zones
+2. **Filter displayed current tasks** — which WIP tasks to show as dots on the chart
+
+### Main Filters:
+
+- **Time frames**: Period for calculating historical statistics (e.g., last 3 months)
+- **Quick filters**: Pre-configured board filters
+- **Swimlanes**: Filter by specific swimlanes
+- **Selected Columns**: Defines workflow columns that:
+  - Display on the chart (X-axis)
+  - Participate in accumulated time calculation
+  - Used for building statistics
+- **Filtering mode**: Criteria for determining completed tasks
+
+**Important**: Changing any filter recalculates all statistics and can significantly change color zones and percentile lines.
+
+## What the Chart Says About Your Work
+
+### 1. Identifying Problems and Risks
+
+**Look at tasks in red zones** — these are tasks executing slower than 95% of similar tasks from the past. Items in the upper part of the aging chart represent the highest risk to team reputation and customer satisfaction.
+
+**Pay attention to task clusters** in one column — this may indicate:
+
+- Process bottleneck
+- Shortage of people or skills at this stage
+- Technical problems or dependencies
+
+**Tasks above the 85th line** already require attention, don't wait for them to reach the red zone.
+
+### 2. Understanding Overall Process Health
+
+**Healthy process looks like:**
+
+- Tasks evenly distributed across columns
+- Most dots are in green and yellow zones
+- Few tasks in red zones
+
+**Problematic process:**
+
+- Many tasks accumulated in one or two columns
+- Many red dots (especially in initial columns)
+- General "upward shift" of all tasks on the chart
+
+### 3. Early Warning of Future Problems
+
+The aging chart works as an early warning radar. Problems you see today in initial columns will become big problems tomorrow in final columns.
+
+**What to watch for:**
+
+- **Tasks in red zone in initial columns** — they will definitely cause problems later
+- **Growing number of tasks above 85th line** — trend toward deterioration
+- **Repeating patterns** — same problems every week
+
+### 4. Data-Driven Decision Making
+
+**Questions the chart answers:**
+
+- How much work can we take on simultaneously?
+- Which column regularly has problems?
+- Are our process improvements helping?
+- Which tasks need escalation right now?
+
+**Practical solutions:**
+
+- **Reduce WIP limits** if many tasks are in red zones
+- **Add resources** to columns with persistent problems
+- **Change process** for columns where tasks regularly "age"
+
+## How to Use the Chart in Work
+
+### 1. Daily Standups
+
+**Start meetings with Aging Chart:**
+
+- Show tasks in red zones — discuss what to do
+- Tasks above 85th line — who needs help?
+- New tasks in yellow zones — monitor
+
+It's recommended to use the aging chart as a foundation for daily conversations about what blocks the flow.
+
+### 2. Percentile Configuration
+
+Percentile selection depends on team needs:
+
+- **Simple analysis**: 50% and 85% lines
+- **Detailed analysis**: all five lines (30%, 50%, 70%, 85%, 95%)
+- **Historical period**: adjust to team planning cycles
+
+### 3. Connection with Other Reports
+
+**Use together for complete picture:**
+
+- **CFD (Cumulative Flow)** — shows task accumulation, Aging Chart — what to do with them
+- **Cycle Time** — shows how long completed tasks usually take
+- **Throughput** — how many tasks we complete, Aging Chart — are we taking too much work
+
+### 4. Specific Actions
+
+**What to do with red tasks:**
+
+1. Click on dot → open tasks in Jira
+2. Understand what blocks them
+3. Assign someone responsible for unblocking
+4. Set deadline for problem resolution
+
+**Process improvement:**
+
+- If problems repeat in one column — change process in that column
+- If many red tasks — reduce WIP limits
+
+## Practical Recommendations
+
+### Basic Usage Principles
+
+- Focus on tasks in red zones as risk indicators
+- Look for systemic causes of problems
+- Use the chart for trend identification, not one-time assessments
+- Regularly review percentile settings for team needs
+
+### Data Quality
+
+The aging chart is only as good as your data. Ensure columns reflect real work stages, not formal statuses.
+
+**Check:**
+
+- Are all important work stages represented by columns?
+- Do you move tasks to the next column as soon as work begins?
+- Do filters match your actual work scope?
 
 ## Conclusion
 
-The Aging Chart is a powerful tool for visualizing the current state of tasks and identifying potential problems in the work process. Proper use of this report will help you quickly respond to deviations and maintain the efficiency of your workflow.
+The Aging Chart is not just a pretty picture, but a practical tool for managing delivery risks. Practice shows that teams regularly using the aging chart significantly more often meet their commitments on time.
+
+Start simple: show the chart to your team, discuss red tasks at standups, make data-driven decisions. Gradually you'll learn to see problems before they become critical, and your customers will receive results faster and more predictably.
